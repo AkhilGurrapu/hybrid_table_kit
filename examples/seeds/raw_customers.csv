@@ -1,0 +1,6 @@
+customer_id,customer_name,email,country,created_date
+101,Alice Smith,alice@example.com,USA,2024-01-01
+102,Bob Johnson,bob@example.com,Canada,2024-01-02
+103,Carol Williams,carol@example.com,UK,2024-01-03
+104,David Brown,david@example.com,USA,2024-01-04
+105,Eve Davis,eve@example.com,Australia,2024-01-05

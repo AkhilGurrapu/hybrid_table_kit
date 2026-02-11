@@ -1,0 +1,32 @@
+# Example profiles.yml for Snowflake hybrid table projects
+#
+# Copy this to ~/.dbt/profiles.yml or use --profiles-dir to point to it.
+# Replace placeholder values with your actual Snowflake credentials.
+#
+# Authentication options shown below. Uncomment ONE method.
+
+snowflake_hybrid:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"     # e.g., xy12345.us-east-1
+      user: "{{ env_var('SNOWFLAKE_USER') }}"
+      role: "{{ env_var('SNOWFLAKE_ROLE', 'SYSADMIN') }}"
+      database: "{{ env_var('SNOWFLAKE_DATABASE') }}"
+      warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE') }}"
+      schema: "{{ env_var('SNOWFLAKE_SCHEMA', 'PUBLIC') }}"
+
+      # --- Option 1: Password authentication ---
+      # password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
+
+      # --- Option 2: Personal Access Token (PAT) ---
+      # Put the token in the password field — no special authenticator needed.
+      password: "{{ env_var('SNOWFLAKE_TOKEN') }}"
+
+      # --- Option 3: Key pair authentication ---
+      # private_key_path: /path/to/rsa_key.p8
+      # private_key_passphrase: "{{ env_var('SNOWFLAKE_KEY_PASSPHRASE', '') }}"
+
+      threads: 4
+      client_session_keep_alive: true

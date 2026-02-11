@@ -1,0 +1,19 @@
+# Example dbt_project.yml for hybrid table materialization
+#
+# To use in your own project:
+# 1. Copy the macros/ folder from hybrid_table_kit into your project's macros/ directory
+# 2. Create models with materialized='hybrid_table' (see examples/models/)
+# 3. Run: dbt run --full-refresh (first time) or dbt run (incremental)
+
+name: 'hybrid_table_examples'
+version: '1.0.0'
+
+profile: 'snowflake_hybrid'
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+macro-paths: ["../macros"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
